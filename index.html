@@ -16,7 +16,7 @@
         </div>
         <div class="form-content">
             <h1>Registration Info</h1>
-            <form action="#">
+            <form id="registrationForm" action="#">
                 <div class="input-box">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
@@ -47,5 +47,30 @@
             </form>
         </div>
     </div>
+
+    
+    <script>
+        document.getElementById("email").addEventListener("input", function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailField = document.getElementById("email");
+
+            if (emailRegex.test(email)) {
+                emailField.style.borderColor = "green";
+            } else {
+                emailField.style.borderColor = "red";
+            }
+        });
+
+        
+        document.getElementById("registrationForm").addEventListener("submit", function(e) {
+            e.preventDefault(); 
+            const email = document.getElementById("email").value;
+            alert(`Dziękujemy! Twój e-mail (${email}) został potwierdzony.`);
+            window.location.href = "thank-you.html"; 
+        });
+
+    </script>
+
 </body>
 </html>
