@@ -77,6 +77,19 @@
             window.location.href = "thank-you.html"; 
         });
 
+        document.getElementById("phone").addEventListener("input", function() {
+    const phone = this.value;
+    const phoneRegex = /^[0-9]{9,10}$/;
+    const phoneField = document.getElementById("phone");
+
+    if (phoneRegex.test(phone)) {
+        phoneField.style.borderColor = "green";
+    } else {
+        phoneField.style.borderColor = "red";
+    }
+});
+
+
     </script>
 
 </body>
